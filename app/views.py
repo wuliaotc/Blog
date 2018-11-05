@@ -16,7 +16,8 @@ def register(request):
         PassWord=request.POST['PWD']
         Email=request.POST['Email']
 
-        return HttpResponseRedirect(request.session['home']) 
+        return HttpResponse(UserName+'<br>'+PassWord+'<br>'+Email)
+        #return HttpResponseRedirect(request.session['home']) 
 
         
 def login(request):
