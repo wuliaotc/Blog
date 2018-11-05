@@ -26,6 +26,7 @@ def login(request):
 
 
 def setting(request):
-    
-    return HttpResponse('')
-    
+    if request.method=='GET':
+        return render(request,'app/work_flex_part02.html')
+    elif request.method=='POST':
+        return HttpResponse('POST')

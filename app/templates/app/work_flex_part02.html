@@ -19,7 +19,7 @@
         }
         function cleanImg() {
             var img = document.getElementById("img");
-            img.src = "/static/images/img.jpg";
+            img.src = "/static/images/img.png";
         }
         function SelectImg() {
             var fileInput = document.getElementById("pic");
@@ -71,7 +71,7 @@
                     <tr>
                         <td>头像:</td>
                         <td>
-                            <img src='/static/images/img.jpg' id="img" style="height: 80px;width:80px;border-radius:50%;"
+                            <img src='/static/images/img.png' id="img" style="height: 80px;width:80px;border-radius:50%;"
                                 onclick="SelectImg()">
                             <input name="avater" type="file" accept="image/*" id="pic" style="display: none;" onchange="previewImg(this)"></td>
                     </tr>
