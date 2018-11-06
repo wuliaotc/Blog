@@ -66,7 +66,7 @@
     </div>
     <div class="mdui-container doc-container doc-no-cover">
         <div class="mdui-card">
-            <form action='/register/' method="post" id="Register_Form" style="margin: 0 auto;" onsubmit="return verifyData()">
+            <form action='' method="post" id="Register_Form" style="margin: 0 auto;" onsubmit="return verifyData()">
                 <table style="margin: 0 auto;">
                     <tr>
                         <td>头像:</td>
@@ -152,28 +152,28 @@
                             <div class="mdui-row-md-4">
                                 <div class="mdui-col">
                                     <label class="mdui-checkbox">
-                                        <input type="checkbox" />
+                                        <input type="checkbox" name='read' value='1' />
                                         <i class="mdui-checkbox-icon"></i>
                                         阅读
                                     </label>
                                 </div>
                                 <div class="mdui-col">
                                     <label class="mdui-checkbox">
-                                        <input type="checkbox" />
+                                        <input type="checkbox" name='sport' value='1' />
                                         <i class="mdui-checkbox-icon"></i>
                                         运动
                                     </label>
                                 </div>
                                 <div class="mdui-col">
                                     <label class="mdui-checkbox">
-                                        <input type="checkbox" />
+                                        <input type="checkbox" name='game' value='1' />
                                         <i class="mdui-checkbox-icon"></i>
                                         游戏
                                     </label>
                                 </div>
                                 <div class="mdui-col">
                                     <label class="mdui-checkbox">
-                                        <input type="checkbox" />
+                                        <input type="checkbox" name='music' value='1' />
                                         <i class="mdui-checkbox-icon"></i>
                                         音乐
                                     </label>
@@ -189,14 +189,14 @@
                         <td colspan="2">
                             <div class="mdui-textfield mdui-textfield-floating-label">
                                 <label class="mdui-textfield-label">备注</label>
-                                <textarea maxlength="50" class="mdui-textfield-input"></textarea>
+                                <textarea maxlength="50" name='remark' class="mdui-textfield-input"></textarea>
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2">
                             <div id="control" style="margin: 0 auto;">
-                                <button class="mdui-btn" type="reset" name="reset" onclick="cleanImg()">重置</button>
+                                <button class="mdui-btn" type="reset" onclick="cleanImg()">重置</button>
                                 <input class="mdui-btn" type="submit" value="提交">
                             </div>
                         </td>
