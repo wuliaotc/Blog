@@ -67,6 +67,7 @@
     <div class="mdui-container doc-container doc-no-cover">
         <div class="mdui-card">
             <form action='' method="post" id="Register_Form" style="margin: 0 auto;" onsubmit="return verifyData()">
+                {% csrf_token %}
                 <table style="margin: 0 auto;">
                     <tr>
                         <td>头像:</td>
@@ -152,28 +153,28 @@
                             <div class="mdui-row-md-4">
                                 <div class="mdui-col">
                                     <label class="mdui-checkbox">
-                                        <input type="checkbox" name='read' value='1' />
+                                        <input type="checkbox" name='hobby' value='0' />
                                         <i class="mdui-checkbox-icon"></i>
                                         阅读
                                     </label>
                                 </div>
                                 <div class="mdui-col">
                                     <label class="mdui-checkbox">
-                                        <input type="checkbox" name='sport' value='1' />
+                                        <input type="checkbox" name='hobby' value='1' />
                                         <i class="mdui-checkbox-icon"></i>
                                         运动
                                     </label>
                                 </div>
                                 <div class="mdui-col">
                                     <label class="mdui-checkbox">
-                                        <input type="checkbox" name='game' value='1' />
+                                        <input type="checkbox" name='hobby' value='2' />
                                         <i class="mdui-checkbox-icon"></i>
                                         游戏
                                     </label>
                                 </div>
                                 <div class="mdui-col">
                                     <label class="mdui-checkbox">
-                                        <input type="checkbox" name='music' value='1' />
+                                        <input type="checkbox" name='hobby' value='3' />
                                         <i class="mdui-checkbox-icon"></i>
                                         音乐
                                     </label>
