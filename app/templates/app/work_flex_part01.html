@@ -10,9 +10,11 @@
         }
 
         function verifyData() {
-            var u = document.forms["Register_Form"]["UserName"].value;
-            var p = document.forms["Register_Form"]["PassWord"].value;
-            var rp = document.forms["Register_Form"]["Re-enterPWD"].value;
+            var u = document.getElementById('USN').value;
+            var p = document.getElementById('PWD').value;
+            var rp = document.getElementById('re_PWD').value;
+            var email = document.getElementById('email').value;
+            console.log('verfydata start');
             if (u == null || u == '') {
                 alert("账号不可为空");
                 return false;
@@ -31,8 +33,12 @@
             }
             if (p.length == rp.length) {
                 if (p.value == rp.value){//验证通过
-                    rp.setAttribute('disabled','disabled')
-                    return true;
+                    
+                    var r=confirm('确认信息\n'+u+'\n'+p+'\n'+email);
+                    if(r==true){
+                        return true;
+                    }
+                    return false;
                 }
             }
             alert("两次输入的密码不一致");
@@ -182,7 +188,7 @@
 <body>
     <div class="flex-container">
 
-        <form action='' method="post" id="Register_Form" onsubmit="return verifyData()">
+        <form action='' method="POST" id="Register_Form" onsubmit="return verifyData();">
             {% csrf_token %}
             <div id="welcome" style="text-align: center;">
                 <span>欢迎注册</span><br>
@@ -208,7 +214,7 @@
                             src="/static/images/error.png" style="height: 15px;opacity: 0;"></td>
                 </tr>
             </table>
-            <input type="submit" id="submit" value="提交" onsubmit="verifyData()">
+            <input type="submit" id="submit" value="提交">
         </form>
     </div>
 </body>
