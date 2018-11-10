@@ -9,6 +9,8 @@
     <script src="/static/js/mdui.min.js"></script>
     <script>
         function verifyData() {
+            var confirm_text='';//确认消息文本
+
             console.log('verfydata start');
             var sel_c = document.getElementById('class');
             var c = sel_c.value;//班级
@@ -24,19 +26,25 @@
             else {
                 g = '女';//女
             }
+            confirm_text+=sel_c.options[sel_c.selectedIndex].text + '\n' + sel_co.options[sel_co.selectedIndex].text + '\n' + snum + '\n' + g+'\n';
+            confirm_text+='爱好:'
             var hobby = document.getElementsByName('hobby');//爱好
             var hobbyList = new Array();
             for (var i = 0; i < hobby.length; i++) {
-                if (hobby[i].checked == true)
-                    hobbyList.push(hobby[i].value);
+                if (hobby[i].checked == true){
+                    hobbyList[hobby[i].value]=hobby[i].nextSibling.nextSibling.nextSibling.nodeValue.trim();
+                    confirm_text+=hobbyList[hobby[i].value]+' ';
+                }
+                    
             }
+
             console.log(c)
             console.log(college)
             console.log(genter)
             console.log(snum)
             console.log(g)
             console.log(hobbyList)
-            var r = confirm('确认信息\n' + sel_c.options[sel_c.selectedIndex].text + '\n' + sel_co.options[sel_co.selectedIndex].text + '\n' + snum + '\n' + g);
+            var r = confirm('确认信息\n' + confirm_text);
             if (r == true) {
                 return true;
             }
