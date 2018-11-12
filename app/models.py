@@ -3,4 +3,4 @@ from django.db import models
 # Create your models here.
 
 #class User(models.Model):
-    #UserName=models.CharField()
+#   UserName=models.CharField()
