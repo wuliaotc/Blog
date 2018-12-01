@@ -13,7 +13,8 @@ class User(models.Model):
     UserName = models.CharField(max_length=USERNAME_LENGTH)
     #用户邮箱地址 用于验证?
     Email = models.EmailField()
-
+    #用户密码
+    PassWord = models.CharField(max_length=20)
     def __str__(self):
         return self.UserName
 
