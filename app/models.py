@@ -20,12 +20,12 @@ class User(models.Model):
 class Article(models.Model):
     #文章标题
     Title=models.CharField(max_length=ARTICLE_TITLE_LENGTH)
-    #文章作者 一个作者对应多个文章
-    Author=models.ForeignKey(User)
+    #文章作者 一个作者对应多个文章 Django模拟SQL约束ON DELETE CASCADE的行为，并删除包含ForeignKey的对象。
+    Author=models.ForeignKey(User,on_delete=models.CASCADE)
     #发表时间
     Launch_Time=models.DateTimeField(auto_now_add=True)
-    #修改时间
-    Edit_Time=models.DateTimeField(auto_add=True)
+    #修改时间 
+    Edit_Time=models.DateTimeField(auto_now=True)
     #文章内容
     Content=models.TextField()
     
