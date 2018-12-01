@@ -25,7 +25,7 @@ class Article(models.Model):
     #发表时间
     Launch_Time=models.DateTimeField(auto_now_add=True)
     #修改时间
-    Edit_Time=models.DateTimeField.(auto_add=True)
+    Edit_Time=models.DateTimeField(auto_add=True)
     #文章内容
     Content=models.TextField()
     
