@@ -19,5 +19,6 @@ from app import views as app_views
 
 urlpatterns = [
     path('register/',app_views.register),
-    path('login/',app_views.login)
+    path('login/',app_views.login),
+    path('index/',app_views.index)
 ]
