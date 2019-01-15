@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>编辑器</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="../static/plugins/editor.md/css/editormd.css" />
+    <!-- 导入js -->
+    <script src="../static/js/jquery-3.3.1.min.js"></script>
+    <script src="../static/plugins/editor.md/editormd.js"></script>
+    <script>
+        var testEditor;
+        $(function () {
+            testEditor = editormd("editormd", {//下面div的id
+                width: "1000px",
+                height: 640,
+                syncScrolling: "single",
+                path: "../static/plugins/editor.md/lib/",
+                imageUpload: true,
+                imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+                imageUploadURL: "",
+                //saveHTMLToTextarea: true,//开启转换html
+            });
+        });
+        /*这是 editor.md期望返回的json数据
+            {
+                success: 0 | 1, //0表示上传失败;1表示上传成功
+                message : "提示的信息",
+                url     : "图片地址" //上传成功时才返回
+            }*/
+    </script>
+    <script>
+        function launchblog() {
+            console.log("launchblog!");
+            title=$("#title").val();
+            if(title.length==0){
+                console.log("title is null")
+                return false;
+            }
+            content = $('.editormd-markdown-textarea').val()
+            if(content.length==0){
+                console.log("content is null")
+                return false;
+            }
+                
+            //更多判断! 更多提醒!
+
+            $.ajax({
+                type: "POST",//请求方式
+                url: "",//地址，就是json文件的请求路径
+                data: { title: title, content: content },
+                dataType: "json",//数据类型可以为 text xml json  script  jsonp
+                success: function (result) {//返回的参数就是 action里面所有的有get和set方法的参数
+                    if(result.success){
+                        alert('上传成功 点击确定跳转到首页')
+                        window.location.href = '/index'
+                    }
+                    else{
+                        alert('未知错误,要不再试试')
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div class="title">
+        <input type="text" placeholder="请输入文章标题" id="title">
+        <button class="btn btn-primary" onclick="launchblog()">发布博客</button>
+        <button>保存草稿</button>
+    </div>
+    <div id="editormd">
+        <textarea id="my-editormd-html-code" name="my-editormd-html-code" style="display:none;"></textarea>
+        <textarea name="content" style="display:none;"></textarea>
+    </div>
+</body>
+
+</html>
