@@ -71,7 +71,7 @@ WSGI_APPLICATION = 'Blog.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-import mysql.connector
+#import mysql.connector
 
 DATABASES = {
 
