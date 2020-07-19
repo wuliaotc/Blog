@@ -16,7 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app import views as app_views
+from app import upload 
 
+from Blog import settings
 urlpatterns = [
     path('',app_views.toIndex),
     path('register/', app_views.register),
@@ -31,7 +33,9 @@ urlpatterns = [
     path('article/<int:article_id>', app_views.ShowArticle),
     path('article/<int:article_id>/remove', app_views.delArticle),
     path('article/<int:article_id>/remark', app_views.addRemark),
+    path('article/<int:article_id>/like', app_views.likeArticle),
     path('article/<int:article_id>/remark/<int:remark_id>',
          app_views.addReply),
-    path('write/', app_views.writeblog)
+    path('write/', app_views.writeblog),
+    path('uploadImage',upload.uploadImage),
 ]

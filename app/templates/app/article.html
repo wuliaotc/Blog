@@ -36,6 +36,7 @@
                     })
                 }
             })
+           
             $('.reply_button').click(function () {//1评论的回复
                 console.log($('.reply_button').index(this));//0---
                 var n= $('.reply_button').index(this);
@@ -58,6 +59,25 @@
                         }
                     })
                 }
+                
+            })
+            $('#like').click(function () {//喜欢
+                 $("#like").unbind("click")
+                var n= $('.reply_button').index(this);
+                if (1) {
+                    console.log('ajax')
+                    $.ajax({
+                        type: "GET",//请求方式
+                        url: window.location.pathname + "/like",
+                        success: function (result) {//返回的参数就是 action里面所有的有get和set方法的参数
+                            if(result.status){
+                                $("#like").next().text(parseInt($("#like").next().text())+1)
+                                $("#like").attr("class","fa fa-thumbs-up")
+                            }
+                        }
+                    })
+                }
+                
             })
         })
     </script>
@@ -79,8 +99,10 @@
                         {{context.article_content|safe}}
                         <hr>
                         <div class="article-info">
-                            <i class="fa fa-thumbs-o-up" style="font-size: 25px;line-height: 45px;"></i>
-                            <span>10086</span>
+                            <i class="fa fa-thumbs-o-up" id='like' style="font-size: 25px;line-height: 45px;"></i>
+                            <span>{{context.LikeCount}}</span>
+                            <i class="fa fa-eye" style="font-size: 25px;line-height: 45px;"></i>
+                            <span>{{context.ViewCount}}</span>
                         </div>
                     </div>
 

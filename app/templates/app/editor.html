@@ -7,10 +7,10 @@
     <title>编辑器</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <link rel="stylesheet" href="../static/plugins/editor.md/css/editormd.css" />
+    <link rel="stylesheet" href="../static/plugins/editor.md-master/css/editormd.css" />
     <!-- 导入js -->
     <script src="../static/js/jquery-3.3.1.min.js"></script>
-    <script src="../static/plugins/editor.md/editormd.js"></script>
+    <script src="../static/plugins/editor.md-master/editormd.js"></script>
     <script>
         var testEditor;
         $(function () {
@@ -18,10 +18,10 @@
                 width: "1000px",
                 height: 640,
                 syncScrolling: "single",
-                path: "../static/plugins/editor.md/lib/",
+                path: "../static/plugins/editor.md-master/lib/",
                 imageUpload: true,
                 imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-                imageUploadURL: "",
+                imageUploadURL: "/uploadImage",
                 //saveHTMLToTextarea: true,//开启转换html
             });
         });

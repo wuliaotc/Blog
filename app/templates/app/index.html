@@ -93,7 +93,7 @@
 
         function addArticle(json) {
             $("#article-content").append(
-                "<div class='card' data-id=" + json['id'] + "><div class='card-header'> <h5 class='card-title'>【最新发布】</h5></div><div class='card-body'><h6 class='card-subtitle mb-2 text-muted'>" + json['Title'] + "</h6><p class='card-text'>" + json['Content'] + "</p> <time class='time'><i class='glyphicon glyphicon-time'></i>" + json["Launch_Time"] + "</time><span class='views'><i class='glyphicon glyphicon-eye-open'></i> 共" + 10 + "人围观</span> <span class='views'><i class='glyphicon glyphicon-eye-open'></i> " + 10 + "个不明物体</span></div><div class='card-footer'><a href=" + "../article/" + json['id'] + " class='card-link'>阅读全文</a></div>   </div>"
+                "<div class='card' data-id=" + json['id'] + "><div class='card-header'> <h5 class='card-title'>"+json['Title']+"</h5></div><div class='card-body'><h6 class='card-subtitle mb-2 text-muted'>" + json['Title'] + "</h6><p class='card-text'>" + json['Content'] + "</p> <time class='time'><i class='glyphicon glyphicon-time'></i>" + json["Launch_Time"] + "</time><span class='views'><i class='glyphicon glyphicon-eye-open'></i> 共" + json['ViewCount'] + "次浏览</span> <span class='views'><i class='glyphicon glyphicon-eye-open'></i>点赞数" + json['LikeCount'] + "</span></div><div class='card-footer'><a href=" + "../article/" + json['id'] + " class='card-link'>阅读全文</a></div>   </div>"
             )
         };
 
@@ -167,13 +167,13 @@
                         <div class="card-body" style="padding: 0">
                             <ul class="list-group">
                                 <li class="list-group-item">
-                                    <a href="javascript:void(0) ">这是第一条公告</a>
+                                    <a href="../article/1 ">这是第一条公告</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="javascript:void(0) ">这是第二条公告</a>
+                                    <a href="../article/2 ">这是第二条公告</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="javascript:void(0) ">这是第三条公告</a>
+                                    <a href="../article/3">这是第三条公告</a>
                                 </li>
                             </ul>
                         </div>
@@ -185,13 +185,13 @@
                         <div class="card-body" style="padding: 0">
                             <ul class="list-group">
                                 <li class="list-group-item">
-                                    <a href="javascript:void(0) ">这是第一篇文章</a>
+                                    <a href="../article/1 ">这是第一篇文章</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="javascript:void(0) ">这是第二篇文章</a>
+                                    <a href="../article/2 ">这是第二篇文章</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="javascript:void(0) ">这是第三篇文章</a>
+                                    <a href="../article/3 ">这是第三篇文章</a>
                                 </li>
                             </ul>
                         </div>

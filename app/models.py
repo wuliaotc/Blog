@@ -17,7 +17,8 @@ class User(models.Model):
     Email = models.EmailField()
     #用户密码
     PassWord = models.CharField(max_length=256)
-
+    #头像文件名
+    AvatorFileName=models.CharField(max_length=256,default='default_avater.jpg')
     def __str__(self):
         return self.UserName
 
@@ -33,9 +34,19 @@ class Article(models.Model):
     Edit_Time=models.DateTimeField(auto_now=True)
     #文章内容
     Content=MDTextField()
-
+    #浏览量
+    ViewCount=models.IntegerField(default=0)
+    #点赞
+    LikeCount=models.IntegerField(default=0)
     def __str__(self):
         return self.Title
+
+#保存用户 和 文章的点赞关系
+class ArticleLike(models.Model):
+
+    User = models.ForeignKey(User, on_delete=models.CASCADE, related_name='ArticleLike')
+    Article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='ArticleLike')
+
 
 class  parentRemark(models.Model):#第一级评论
     #id 主键
